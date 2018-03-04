@@ -1,0 +1,17 @@
+###################
+# RPI-STM32-MOWER #
+###################
+
+1. Setup RPI
+2. Setuo RPI so that Serial can be accessed over GPIO
+3. Install platformio
+4. If RPI Zero W, need to build openocd from scratch and put in platformio/packages/tool-openocd. You will also need to hackish the package.json so that the Package Manager in platformio believes it is downloaded
+5. Upload custom rpizerow openocd config, had to remove bus speed and base peripheral to get it to work, can probably find the exact values in datascheet of arm chipset on rpi zero w as well.
+6. I had to manipulate the board config in the platformio lib in order to not send all extra arguments to upload cmd script.
+7. I had to manipulate the platformio main build script and to remove double bracket "{" for the binary filename to be uploaded. Syntax issue.
+
+8. Files to be shared.
+   - Openocd interface file, raspberrypizerow-native.cfg
+   - Openocd board file, stm32f1x.cfg
+   - PlatformIO board bluepill_stm32f1x.cfg
+   - PlatformIO main build file
